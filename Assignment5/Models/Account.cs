@@ -1,0 +1,27 @@
+﻿
+using System.Web.Mvc;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+
+namespace Assignment5.Models
+{
+    public class Account
+    {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Range(1, long.MaxValue, ErrorMessage = "Account number cannot be negative or zero")]
+        [Remote("CheckAccountNumber", "Home")]
+        public int AccountNumber { get; set; }
+
+
+       
+        [Required(ErrorMessage = "Name must be specified")]
+        public string Name { get; set; }
+
+
+        [Range(500, long.MaxValue, ErrorMessage = "Minimum balance must be  500")]
+        public double CurrentBalance { get; set; }
+
+
+    }
+}

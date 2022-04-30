@@ -1,0 +1,24 @@
+﻿@model Assignment3.Models.User
+
+@{
+    ViewBag.Title = "AddUser";
+}
+
+<h2>AddUser</h2>
+@using (Html.BeginForm("SaveUser", "Home"))
+{
+    <p>
+        @Html.TextBoxFor(user => user.UserName)
+    </p>
+
+    <p>
+        @Html.PasswordFor(user => user.Password)
+    </p>
+
+    <input type="submit" value="Add User" />
+}
+<p>
+    @Html.ActionLink("Back to List","Index")
+</p>
+
+
